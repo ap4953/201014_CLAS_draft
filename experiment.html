@@ -21,3 +21,53 @@ html
 
 	</script>
 </html>
+ var training_instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>The goal of this experiment is to emulate the Deese Roediger McDermott paradigm " +
+      "paradigm. for false memories.</p>" +
+      "<p>Starting on the next page, you will be presented with eight consecutive lists. " +
+      "Each list is preceded by a focus cross, and " +
+      "there are 15 words in each list. Try to pay as much attention as you can to the " +
+      "contents of each list. Press any key to continue.</p>",
+      post_trial_gap: 1000
+    };
+    timeline.push(training_instructions);
+
+//-----------------------------FIRST LIST---------------------------------------
+// critical word - anger
+
+    //fixation cross
+    var fixation = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:100px;">+</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 1000,
+      post_trial_gap:500
+    };
+    timeline.push(fixation);
+
+    var first_trial_stimuli = [
+      {stimulus: '<div style="font-size:150px;">mad</div>'},
+      {stimulus: '<div style="font-size:150px;">fear</div>'},
+      {stimulus: '<div style="font-size:150px;">hate</div>'},
+      {stimulus: '<div style="font-size:150px;">rage</div>'},
+      {stimulus: '<div style="font-size:150px;">temper</div>'},
+      {stimulus: '<div style="font-size:150px;">fury</div>'},
+      {stimulus: '<div style="font-size:150px;">ire</div>'},
+      {stimulus: '<div style="font-size:150px;">wrath</div>'},
+      {stimulus: '<div style="font-size:150px;">happy</div>'},
+      {stimulus: '<div style="font-size:150px;">fight</div>'},
+      {stimulus: '<div style="font-size:150px;">hatred</div>'},
+      {stimulus: '<div style="font-size:150px;">mean</div>'},
+      {stimulus: '<div style="font-size:150px;">calm</div>'},
+      {stimulus: '<div style="font-size:150px;">emotion</div>'},
+      {stimulus: '<div style="font-size:150px;">enrage</div>'}
+    ]
+
+    var first_trial = {
+      type: 'html-keyboard-response',
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 1500,
+      post_trial_gap: 1500
+    };
